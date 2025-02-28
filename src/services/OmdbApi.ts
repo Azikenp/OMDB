@@ -51,31 +51,7 @@ export const getMovieDetails = async (imdbID: string) => {
   }
 };
 
-// **Fetch movies by type (movie, series, episode)**
-export const getMoviesByType = async (
-  query: string,
-  type: "movie" | "series" | "episode"
-) => {
-  try {
-    const response = await api.get("/", {
-      params: { s: query, type },
-    });
-    return response.data.Search;
-  } catch (error) {
-    handleError(error);
-  }
-};
 
-// **Fetch movie by  title**
-export const getMovieByName = async (title: string) => {
-  try {
-    const response = await api.get("/", {
-      params: { t: title },
-    });
-    return response.data;
-  } catch (error) {
-    handleError(error);
-  }
-};
+
 
 export default api;

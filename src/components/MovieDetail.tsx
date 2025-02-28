@@ -9,7 +9,7 @@ const MovieDetail = ({ movie }) => {
         {movie.Title} ({movie.Year})
       </h2>
 
-      <div className="flex flex-col md:flex-row justify-center md:justify-start gap-3">
+      <div className="flex flex-col md:flex-row justify-center md:justify-start gap-6">
         <img
           className="w-68 md:w-64 h-84 rounded-sm object-fit"
           src={
@@ -20,7 +20,7 @@ const MovieDetail = ({ movie }) => {
           alt={movie.Title}
         />
 
-        <div className="flex flex-col gap-3">
+        <div className="flex flex-col gap-4">
           <p className="text-lg">{movie.Plot}</p>
           <p>
             <strong>Director:</strong> {movie.Director}
