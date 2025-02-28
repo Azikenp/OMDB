@@ -11,7 +11,7 @@ const MovieDetail = ({ movie }) => {
 
       <div className="flex flex-col md:flex-row justify-center gap-3">
         <img
-          className="w-[90%] md:w-64 h-84 rounded-sm object-fit"
+          className="w-68 md:w-64 h-84 rounded-sm object-fit"
           src={
             movie.Poster !== "N/A"
               ? movie.Poster
@@ -21,9 +21,7 @@ const MovieDetail = ({ movie }) => {
         />
 
         <div className="flex flex-col gap-3">
-          <p className="text-lg">
-            <strong>Plot:</strong> {movie.Plot}
-          </p>
+          <p className="text-lg">{movie.Plot}</p>
           <p>
             <strong>Director:</strong> {movie.Director}
           </p>
