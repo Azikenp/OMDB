@@ -8,16 +8,74 @@ const getRandomMovie = (namesArray: string[]): string => {
 
 const getRandomMovieValue = getRandomMovie(movieNames);
 
-const api_key = import.meta.env.VITE_API_KEY;
+const API_KEY = import.meta.env.VITE_API_KEY;
+const BASE_URL = "https://www.omdbapi.com/";
 
-const omdbURL = `https://www.omdbapi.com/?apikey=${api_key}&`;
+const api = axios.create({
+  baseURL: BASE_URL,
+  params: {
+    apikey: API_KEY,
+  },
+});
 
-const getPoster = axios.get(omdbURL + getRandomMovieValue);
-
-const getMovieBySearch = (param: string) => axios.get(omdbURL + param);
-
-export default {
-  getPoster,
-  getMovieBySearch,
-  getRandomMovieValue,
+const handleError = (error: unknown) => {
+  if (axios.isAxiosError(error)) {
+    console.error("API Error:", error.response?.data || error.message);
+  } else {
+    console.error("Unexpected Error:", error);
+  }
+  throw error;
 };
+
+// **Fetch movies by search query**
+export const searchMovies = async (query: string) => {
+  try {
+    const response = await api.get("/", {
+      params: { s: query },
+    });
+    return response.data.Search; // Returns an array of movies
+  } catch (error) {
+    handleError(error);
+  }
+};
+
+// **Fetch movie details by IMDb ID**
+export const getMovieDetails = async (imdbID: string) => {
+  try {
+    const response = await api.get("/", {
+      params: { i: imdbID },
+    });
+    return response.data;
+  } catch (error) {
+    handleError(error);
+  }
+};
+
+// **Fetch movies by type (movie, series, episode)**
+export const getMoviesByType = async (
+  query: string,
+  type: "movie" | "series" | "episode"
+) => {
+  try {
+    const response = await api.get("/", {
+      params: { s: query, type },
+    });
+    return response.data.Search;
+  } catch (error) {
+    handleError(error);
+  }
+};
+
+// **Fetch movie by  title**
+export const getMovieByName = async (title: string) => {
+  try {
+    const response = await api.get("/", {
+      params: { t: title },
+    });
+    return response.data;
+  } catch (error) {
+    handleError(error);
+  }
+};
+
+export default api;
