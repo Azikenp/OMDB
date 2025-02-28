@@ -1,6 +1,20 @@
 import { useNavigate } from "react-router-dom";
 
-const MovieList = ({ movie }) => {
+interface MovieProps {
+  movie: {
+    Title: string;
+    Year: string;
+    Poster: string;
+    Plot: string;
+    Director: string;
+    Actors: string;
+    imdbRating: string;
+    Released?: string;
+    imdbID: string
+  };
+}
+
+const MovieList = ({ movie }: MovieProps) => {
   const navigate = useNavigate();
 
   const handleMovieClick = (id: string) => {

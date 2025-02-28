@@ -69,8 +69,8 @@ const SearchComponent = () => {
         <Loader />
       ) : (
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mt-4">
-          {movies.map((movie) => (
-            <MovieList key={movie.imdbID} movie={movie} />
+          {movies.map((movie, i) => (
+            <MovieList key={i} movie={movie} />
           ))}
         </div>
       )}
