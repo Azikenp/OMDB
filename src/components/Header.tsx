@@ -6,7 +6,7 @@ import {
   HiTv,
 } from "react-icons/hi2";
 
-import { HiPlus} from "react-icons/hi";
+import { HiPlus } from "react-icons/hi";
 import DesktopNav from "./DesktopNav";
 import MobileNav from "./MobileNav";
 
@@ -39,19 +39,19 @@ const Header = () => {
   ];
 
   return (
-    <div className="flex items-center justify-between p-5 z-30">
+    <div className="flex items-center justify-between p-5 px-8 md:px-16 z-30">
       <div className="flex gap-3 md:gap-8 items-center">
         <div>
           <h3>IMDB</h3>
         </div>
-        
+
         <div>
           <DesktopNav menu={menu} />
         </div>
 
-       <div>
-        <MobileNav menu={menu} />
-       </div>
+        <div>
+          <MobileNav menu={menu} />
+        </div>
       </div>
 
       <img

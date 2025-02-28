@@ -4,14 +4,14 @@ const MovieDetail = ({ movie }) => {
   const navigate = useNavigate();
 
   return (
-    <div className="p-5 flex flex-col gap-5">
+    <div className="px-8 md:px-16 flex flex-col gap-5 border-b border-gray-500 pb-16">
       <h2 className="text-2xl font-bold">
         {movie.Title} ({movie.Year})
       </h2>
 
-      <div className="flex justify-center gap-3">
+      <div className="flex flex-col md:flex-row justify-center gap-3">
         <img
-          className="w-64 h-96 object-cover"
+          className="w-[90%] md:w-64 h-84 rounded-sm object-fit"
           src={
             movie.Poster !== "N/A"
               ? movie.Poster
@@ -33,8 +33,12 @@ const MovieDetail = ({ movie }) => {
           <p>
             <strong>IMDb Rating:</strong> {movie.imdbRating}
           </p>
+          <p>
+            <strong>Release Date:</strong>{" "}
+            {movie.Released ? movie.Released : movie.Year}
+          </p>
           <button
-            className="bg-red-600 cursor-pointer px-4 py-2 rounded-md w-fit"
+            className="bg-red-600 hover:bg-red-500 cursor-pointer px-4 py-2 rounded-md w-fit"
             onClick={() => navigate("/")}
           >
             Watch now

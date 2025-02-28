@@ -8,7 +8,7 @@ const SearchComponent = () => {
   const [error, setError] = useState("");
 
   const handleSearch = async (e: React.FormEvent) => {
-    e.preventDefault(); 
+    e.preventDefault();
 
     if (!query.trim()) {
       setError("Please enter a valid movie name.");
@@ -16,7 +16,7 @@ const SearchComponent = () => {
     }
 
     try {
-      setError(""); 
+      setError("");
       const results = await searchMovies(query);
       if (results) {
         setMovies(results);
@@ -29,9 +29,9 @@ const SearchComponent = () => {
   };
 
   return (
-    <div className="px-5 flex flex-col gap-3 md:items-center md:justify-center">
+    <div className="px-8 md:px-16 flex flex-col gap-3 md:items-center md:justify-center min-h-screen border-b border-gray-500 pb-16">
       <h3 className="font-bold text-[20px] md:text-[26px]">
-        Please enter a movie name
+        Please enter a movie name <span className="hidden md:inline">to begin search</span>
       </h3>
 
       <form
@@ -39,7 +39,7 @@ const SearchComponent = () => {
         className="flex items-center justify-center gap-3"
       >
         <input
-          className="border w-full md:w-[50vw] p-2 rounded-sm outline-none"
+          className="border border-gray-500 placeholder:text-gray-400 placeholder:text-[12px] w-full md:w-[50vw] p-2 rounded-sm outline-none"
           type="text"
           placeholder="Enter a valid movie name"
           value={query}
