@@ -1,6 +1,17 @@
+import { useNavigate } from "react-router-dom";
+
 const MovieList = ({ movie }) => {
+  const navigate = useNavigate();
+
+  const handleMovieClick = (id: string) => {
+    navigate(`/movie/${id}`);
+  };
+
   return (
-    <div className="p-1 border rounded shadow cursor-pointer">
+    <div
+      className="p-1 border rounded shadow cursor-pointer"
+      onClick={() => handleMovieClick(movie.imdbID)}
+    >
       <img
         src={movie.Poster ? movie.Poster : "https://via.placeholder.com/150"}
         alt={movie.Title}
