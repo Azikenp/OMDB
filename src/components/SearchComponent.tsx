@@ -29,7 +29,7 @@ const SearchComponent = () => {
   };
 
   return (
-    <div className="px-8 md:px-16 flex flex-col gap-3 md:items-center md:justify-center min-h-screen border-b border-gray-500 pb-16">
+    <div className="px-8 md:px-16 flex flex-col gap-3 md:items-center md:justify-center min-h-[40vh] md:min-h-screen border-b border-gray-500 pb-16">
       <h3 className="font-bold text-[20px] md:text-[26px]">
         Please enter a movie name <span className="hidden md:inline">to begin search</span>
       </h3>
@@ -47,7 +47,7 @@ const SearchComponent = () => {
         />
         <button
           type="submit"
-          className="bg-red-600 px-4 py-2 rounded-md font-bold cursor-pointer hover:bg-red-600/80 transition-all"
+          className="bg-blue-600 px-4 py-2 rounded-md font-bold cursor-pointer hover:bg-blue-600/80 transition-all"
         >
           Search
         </button>

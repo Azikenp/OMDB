@@ -26,7 +26,7 @@ const MovieDetail = ({ movie }) => {
             <strong>Director:</strong> {movie.Director}
           </p>
           <p>
-            <strong>Actors:</strong> {movie.Actors}
+            <strong>Starring:</strong> {movie.Actors}
           </p>
           <p>
             <strong>IMDb Rating:</strong> {movie.imdbRating}
@@ -36,10 +36,10 @@ const MovieDetail = ({ movie }) => {
             {movie.Released ? movie.Released : movie.Year}
           </p>
           <button
-            className="bg-red-600 hover:bg-red-500 cursor-pointer px-4 py-2 rounded-md w-fit"
+            className="bg-blue-600 hover:bg-blue-500 cursor-pointer px-4 py-2 rounded-md w-fit font-bold"
             onClick={() => navigate("/")}
           >
-            Watch now
+            Watch More
           </button>
         </div>
       </div>

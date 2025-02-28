@@ -31,7 +31,7 @@ const Footer = () => {
           placeholder="Email Address"
           className="bg-transparent border p-2 border-gray-500 rounded-md  placeholder:text-gray-400 placeholder:text-[12px] md:w-[70%] text-white"
         />
-        <button className="flex items-center w-fit px-3 py-2 rounded-md cursor-pointer md:w-[13%] bg-red-600 hover:bg-red-500 border-none text-white">
+        <button className="flex items-center w-fit px-3 py-2 rounded-md cursor-pointer md:w-[13%] bg-blue-600 hover:bg-blue-500 border-none text-white">
           Get Started <HiChevronRight className="text-[25px]" />
         </button>
       </div>
