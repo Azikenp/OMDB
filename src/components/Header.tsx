@@ -42,7 +42,12 @@ const Header = () => {
     <div className="flex items-center justify-between p-5 px-8 md:px-16 z-30">
       <div className="flex gap-3 md:gap-8 items-center">
         <div>
-          <h3>IMDB</h3>
+          <h3 className="cursor-pointer font-bold">
+            <span className="text-red-500">I</span>
+            <span className="text-green-500">M</span>
+            <span className="text-blue-500">D</span>
+            <span className="text-pink-500">B</span>
+          </h3>
         </div>
 
         <div>
