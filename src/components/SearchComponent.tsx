@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { searchMovies } from "../services/OmdbApi";
+import MovieList from "./MovieList";
 
 const SearchComponent = () => {
   const [query, setQuery] = useState("");
@@ -7,7 +8,7 @@ const SearchComponent = () => {
   const [error, setError] = useState("");
 
   const handleSearch = async (e: React.FormEvent) => {
-    e.preventDefault(); // Prevent form submission refresh
+    e.preventDefault(); 
 
     if (!query.trim()) {
       setError("Please enter a valid movie name.");
@@ -15,7 +16,7 @@ const SearchComponent = () => {
     }
 
     try {
-      setError(""); // Clear any previous errors
+      setError(""); 
       const results = await searchMovies(query);
       if (results) {
         setMovies(results);
@@ -57,20 +58,7 @@ const SearchComponent = () => {
       {/* Display Movie Results */}
       <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mt-4">
         {movies.map((movie) => (
-          <a href="/" key={movie.imdbID} className="p-1 border rounded shadow">
-            <img
-              src={
-                movie.Poster
-                  ? movie.Poster
-                  : "https://via.placeholder.com/150"
-              }
-              alt={movie.Title}
-              className="w-full h-[180px] object-cover rounded-md"
-            />
-            <h4 className="text-center text-[12px] md:text-[18px] font-bold mt-2">
-              {movie.Title} ({movie.Year})
-            </h4>
-          </a>
+          <MovieList key={movie.imdbID} movie={movie} />
         ))}
       </div>
     </div>

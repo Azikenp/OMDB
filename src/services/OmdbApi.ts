@@ -1,12 +1,12 @@
 import axios from "axios";
 
-const movieNames = ["barbie", "batman", "redone"];
+// const movieNames = ["barbie", "batman", "redone"];
 
-const getRandomMovie = (namesArray: string[]): string => {
-  return namesArray[Math.floor(Math.random() * namesArray.length)];
-};
+// const getRandomMovie = (namesArray: string[]): string => {
+//   return namesArray[Math.floor(Math.random() * namesArray.length)];
+// };
 
-const getRandomMovieValue = getRandomMovie(movieNames);
+// const getRandomMovieValue = getRandomMovie(movieNames);
 
 const API_KEY = import.meta.env.VITE_API_KEY;
 const BASE_URL = "https://www.omdbapi.com/";
