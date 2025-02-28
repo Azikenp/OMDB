@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { getMovieDetails } from "../services/OmdbApi";
 import MovieDetail from "./MovieDetail";
 import { Loader } from "./Loader";
+import Error from "./Error";
 
 const MovieDetails = () => {
   const { id } = useParams(); // Get the movie ID from URL
@@ -26,7 +27,7 @@ const MovieDetails = () => {
     fetchMovie();
   }, [id]);
 
-  if (error) return <p className="text-red-500">{error}</p>;
+  if (error) return <Error error={error} />;
   if (!movie) return <Loader />;
 
   return (
