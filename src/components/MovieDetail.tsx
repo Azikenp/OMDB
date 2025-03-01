@@ -11,19 +11,18 @@ interface MovieProps {
     Actors: string;
     imdbRating: string;
     Released?: string;
+    Runtime?: string;
   };
 }
 
 const MovieDetail = ({ movie }: MovieProps) => {
   const navigate = useNavigate();
-  const { Title, Year, Poster, Plot, Director, Actors, imdbRating, Released } =
+  const { Title, Year, Poster, Plot, Director, Actors, imdbRating, Released, Runtime } =
     movie;
-    
-    
 
-    useEffect(() => {
-      window.scrollTo(0, 0);
-    }, []);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <div className="px-8 md:px-16 flex flex-col gap-5 border-b border-gray-500 pb-16">
@@ -31,14 +30,14 @@ const MovieDetail = ({ movie }: MovieProps) => {
         {Title} ({Year})
       </h2>
 
-      <div className="flex flex-col md:flex-row md:pr-80 justify-center md:justify-start gap-6">
+      <div className="flex flex-col md:flex-row md:pr-24 lg:pr-80 justify-center md:justify-start gap-6">
         <img
           className="w-68 md:w-64 h-84 rounded-sm object-fit"
           src={Poster !== "N/A" ? Poster : "https://via.placeholder.com/300"}
           alt={Title}
         />
 
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-2">
           <p className="text-lg">{Plot}</p>
           <p>
             <strong>Director:</strong> {Director}
@@ -47,7 +46,11 @@ const MovieDetail = ({ movie }: MovieProps) => {
             <strong>Starring:</strong> {Actors}
           </p>
           <p>
-            <strong>IMDb Rating:</strong> {imdbRating}
+            <strong>Runtime:</strong> {Runtime}
+          </p>
+          <p className="flex items-center gap-2">
+            <strong>IMDb Rating:</strong> <img src="/imdb.svg" alt="" />{" "}
+            {imdbRating}
           </p>
           <p>
             <strong>Release Date:</strong> {Released ? Released : Year}

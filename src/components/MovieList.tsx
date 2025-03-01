@@ -8,9 +8,7 @@ interface MovieProps {
     Year: string;
     Poster: string;
     imdbID: string;
-    Type: string;
-    Genre: string;
-    imdbRating: string
+    Type?: string;
   };
 }
 
@@ -21,9 +19,6 @@ const MovieList = ({ movie }: MovieProps) => {
   const handleMovieClick = (id: string) => {
     navigate(`/movie/${id}`);
   };
-
-  console.log(movie);
-  
 
   return (
     <div
@@ -36,7 +31,7 @@ const MovieList = ({ movie }: MovieProps) => {
         <img
           src={movie.Poster && movie.Poster}
           alt={movie.Title}
-          className={`w-full h-[180px] md:h-[280px] object-cover rounded-md group-hover:scale-105 transition-all ${
+          className={`w-full h-[180px] md:h-[240px] object-cover rounded-md group-hover:scale-105 transition-all ${
             isLoading ? "hidden" : "group-hover:scale-105"
           }`}
           onLoad={() => setIsLoading(false)}
@@ -50,12 +45,6 @@ const MovieList = ({ movie }: MovieProps) => {
         <h4 className="text-center text-[12px] md:text-[16px] font-bold mt-2">
           {movie.Title} ({movie.Year})
         </h4>
-        <div>
-          <div><img src="/imdb.svg" alt="" /><p>{movie.imdbRating}</p></div>
-          <div><img src="/tomato.svg" alt="" /><p></p></div>
-          
-        </div>
-        <div><p>{movie.Genre}</p></div>
       </div>
     </div>
   );
