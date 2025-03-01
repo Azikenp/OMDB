@@ -1,6 +1,5 @@
 import {
   HiHome,
-  HiMagnifyingGlass,
   HiStar,
   HiPlayCircle,
   HiTv,
