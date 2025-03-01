@@ -22,7 +22,6 @@ const SearchComponent = () => {
 
     try {
       const results = await searchMovies(query);
-      console.log(results);
 
       if (results) {
         setMovies(results);
@@ -31,7 +30,7 @@ const SearchComponent = () => {
       }
     } catch {
       setError("Failed to fetch movies. Please try again.");
-      setMovies([])
+      setMovies([]);
     } finally {
       setLoading(false); // 👈 Stop loading
     }
