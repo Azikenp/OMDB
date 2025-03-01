@@ -18,6 +18,8 @@ const MovieDetail = ({ movie }: MovieProps) => {
   const navigate = useNavigate();
   const { Title, Year, Poster, Plot, Director, Actors, imdbRating, Released } =
     movie;
+    
+    
 
     useEffect(() => {
       window.scrollTo(0, 0);
@@ -29,7 +31,7 @@ const MovieDetail = ({ movie }: MovieProps) => {
         {Title} ({Year})
       </h2>
 
-      <div className="flex flex-col md:flex-row justify-center md:justify-start gap-6">
+      <div className="flex flex-col md:flex-row md:pr-80 justify-center md:justify-start gap-6">
         <img
           className="w-68 md:w-64 h-84 rounded-sm object-fit"
           src={Poster !== "N/A" ? Poster : "https://via.placeholder.com/300"}

@@ -11,6 +11,7 @@ const SearchComponent = () => {
   const [loading, setLoading] = useState(false);
 
   const { movies, setMovies } = useMovieContext();
+  
 
   useEffect(() => {
     window.scrollTo(0, 0);

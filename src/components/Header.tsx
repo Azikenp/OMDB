@@ -43,7 +43,7 @@ const Header = () => {
       <div className="flex gap-3 md:gap-8 items-center">
         <div>
           <h3 className="cursor-pointer font-bold">
-            <span className="text-red-500">I</span>
+            <span className="text-red-500">O</span>
             <span className="text-green-500">M</span>
             <span className="text-blue-500">D</span>
             <span className="text-pink-500">B</span>
