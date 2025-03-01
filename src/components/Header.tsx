@@ -9,6 +9,7 @@ import {
 import { HiPlus } from "react-icons/hi";
 import DesktopNav from "./DesktopNav";
 import MobileNav from "./MobileNav";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const menu = [
@@ -42,12 +43,12 @@ const Header = () => {
     <div className="flex items-center justify-between p-5 px-8 md:px-16 z-30">
       <div className="flex gap-3 md:gap-8 items-center">
         <div>
-          <h3 className="cursor-pointer font-bold">
+          <Link to="/" className="cursor-pointer font-bold">
             <span className="text-red-500">O</span>
             <span className="text-green-500">M</span>
             <span className="text-blue-500">D</span>
             <span className="text-pink-500">B</span>
-          </h3>
+          </Link>
         </div>
 
         <div>
