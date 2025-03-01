@@ -48,7 +48,7 @@ const MobileNav = ({ menu }: DesktopNavProps) => {
           <div className="absolute mt-4 bg-[#121212] border-[1px] border-gray-700 px-3 py-4 z-30 flex flex-col gap-2">
             {menu.map(
               (item, index) =>
-                index > 2 && (
+                index > 1 && (
                   <HeaderItem
                     key={item.name}
                     name={item.name}
