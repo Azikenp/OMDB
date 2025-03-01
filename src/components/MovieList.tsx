@@ -25,9 +25,8 @@ const MovieList = ({ movie }: MovieProps) => {
       className="flex flex-col gap-3 p-2 border rounded shadow cursor-pointer group"
       onClick={() => handleMovieClick(movie.imdbID)}
     >
-      {isLoading && <Skeleton />}
-
       <div className="relative">
+        {isLoading && <Skeleton />}
         <img
           src={movie.Poster && movie.Poster}
           alt={movie.Title}

@@ -1,8 +1,8 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { searchMovies } from "../services/OmdbApi";
 import MovieList from "./MovieList";
 import { Loader } from "./Loader";
-import {  useMovieContext } from "../context/MovieContext";
+import { useMovieContext } from "../context/MovieContext";
 
 const SearchComponent = () => {
   const [query, setQuery] = useState("");
@@ -11,7 +11,8 @@ const SearchComponent = () => {
   const [loading, setLoading] = useState(false);
 
   const { movies, setMovies } = useMovieContext();
-  
+
+  const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -41,6 +42,11 @@ const SearchComponent = () => {
       setMovies([]);
     } finally {
       setLoading(false); // 👈 Stop loading
+
+      // 👇 Remove focus from input field after submission
+      if (inputRef.current) {
+        inputRef.current.blur();
+      }
     }
   };
 
@@ -56,6 +62,7 @@ const SearchComponent = () => {
         className="flex items-center justify-center gap-3"
       >
         <input
+          ref={inputRef}
           className="border border-gray-500 placeholder:text-gray-400 placeholder:text-[12px] w-full md:w-[50vw] p-2 rounded-sm outline-none"
           type="text"
           placeholder="Enter a valid movie name"
