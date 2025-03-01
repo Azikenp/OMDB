@@ -1,6 +1,5 @@
 import {
   HiHome,
-  HiMagnifyingGlass,
   HiStar,
   HiPlayCircle,
   HiTv,
@@ -16,10 +15,6 @@ const Header = () => {
     {
       name: "HOME",
       icon: HiHome,
-    },
-    {
-      name: "SEARCH",
-      icon: HiMagnifyingGlass,
     },
     {
       name: "WATCH LIST",
