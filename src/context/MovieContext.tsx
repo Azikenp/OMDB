@@ -24,12 +24,10 @@ export const MovieProvider = ({ children }: { children: ReactNode }) => {
   );
 };
 
-
 export const useMovieContext = () => {
-    const context = useContext(MovieContext);
-    if (!context) {
-      throw new Error("useMovieContext must be used within a MovieProvider");
-    }
-    return context;
-  };
-
+  const context = useContext(MovieContext);
+  if (!context) {
+    throw new Error("useMovieContext must be used within a MovieProvider");
+  }
+  return context;
+};

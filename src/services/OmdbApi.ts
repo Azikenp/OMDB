@@ -30,11 +30,11 @@ export const searchMovies = async (query: string) => {
       `${movieUrl}&s=${encodeURIComponent(query)}`
     );
 
-    if (!response.data.Search) {
+    if (!response.data) {
       throw new Error("No movies found");
     }
 
-    return response.data.Search; // Returns an array of movies
+    return response.data; // Returns an array of movies
   } catch (error) {
     handleError(error);
   }

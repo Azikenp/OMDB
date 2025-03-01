@@ -3,6 +3,7 @@ import { searchMovies } from "../services/OmdbApi";
 import MovieList from "./MovieList";
 import { Loader } from "./Loader";
 import { useMovieContext } from "../context/MovieContext";
+import axios from "axios";
 
 const SearchComponent = () => {
   const [query, setQuery] = useState("");
@@ -32,13 +33,25 @@ const SearchComponent = () => {
     try {
       const results = await searchMovies(query);
 
-      if (results) {
-        setMovies(results);
+      if (results.Response === "True") {
+        setMovies(results.Search);
       } else {
-        setError("No movies found.");
+        throw new Error(results.Error);
       }
-    } catch {
-      setError("Failed to fetch movies. Please try again.");
+    } catch (error) {
+      if (axios.isAxiosError(error)) {
+        if (error.code === "ECONNABORTED") {
+          setError(error.message);
+        } else if (error.code === "ERR_NETWORK") {
+          setError(error.message);
+        } else {
+          setError(error.response?.data || error.message);
+        }
+      } else if (error instanceof Error) {
+        setError(error.message);
+      } else {
+        setError("An unexpected error occurred.");
+      }
       setMovies([]);
     } finally {
       setLoading(false); // 👈 Stop loading
@@ -84,8 +97,8 @@ const SearchComponent = () => {
         <Loader />
       ) : (
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 lg:gap-6 mt-4">
-          {movies.map((movie, i) => (
-            <MovieList key={i} movie={movie} />
+          {movies.map((movie) => (
+            <MovieList key={movie.imdbID} movie={movie} />
           ))}
         </div>
       )}
