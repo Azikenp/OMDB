@@ -24,6 +24,7 @@ export const MovieProvider = ({ children }: { children: ReactNode }) => {
   );
 };
 
+
 export const useMovieContext = () => {
     const context = useContext(MovieContext);
     if (!context) {

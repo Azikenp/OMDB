@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { searchMovies } from "../services/OmdbApi";
 import MovieList from "./MovieList";
 import { Loader } from "./Loader";
@@ -11,6 +11,10 @@ const SearchComponent = () => {
   const [loading, setLoading] = useState(false);
 
   const { movies, setMovies } = useMovieContext();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const handleSearch = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -71,7 +75,7 @@ const SearchComponent = () => {
       {loading ? (
         <Loader />
       ) : (
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mt-4">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 lg:gap-6 mt-4">
           {movies.map((movie, i) => (
             <MovieList key={i} movie={movie} />
           ))}

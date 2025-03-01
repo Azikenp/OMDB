@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 interface MovieProps {
@@ -17,6 +18,10 @@ const MovieDetail = ({ movie }: MovieProps) => {
   const navigate = useNavigate();
   const { Title, Year, Poster, Plot, Director, Actors, imdbRating, Released } =
     movie;
+
+    useEffect(() => {
+      window.scrollTo(0, 0);
+    }, []);
 
   return (
     <div className="px-8 md:px-16 flex flex-col gap-5 border-b border-gray-500 pb-16">
