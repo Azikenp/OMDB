@@ -1,6 +1,6 @@
 # 🎬 Movie Search App
 
-A React-based movie search application that uses the OMDb API to fetch and display movie results with pagination. Built with **React, TypeScript, Axios, and Tailwind CSS**.
+A React-based movie search application that uses the OMDb API to fetch and display movie results. Built with **React, TypeScript, Axios, and Tailwind CSS**.
 
 ## 🚀 Features
 
@@ -29,6 +29,12 @@ A React-based movie search application that uses the OMDb API to fetch and displ
 
 ```sh
 git clone https://github.com/Azikenp/OMDB.git
+```
+
+### 1️⃣ Navigate into the project directory
+
+```sh
+cd OMDB
 ```
 
 ### 2️⃣ Install Dependencies
