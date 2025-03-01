@@ -2,12 +2,15 @@ import { useState } from "react";
 import { searchMovies } from "../services/OmdbApi";
 import MovieList from "./MovieList";
 import { Loader } from "./Loader";
+import {  useMovieContext } from "../context/MovieContext";
 
 const SearchComponent = () => {
   const [query, setQuery] = useState("");
-  const [movies, setMovies] = useState([]);
+  // const [movies, setMovies] = useState([]);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+
+  const { movies, setMovies } = useMovieContext();
 
   const handleSearch = async (e: React.FormEvent) => {
     e.preventDefault();

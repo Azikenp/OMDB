@@ -6,13 +6,12 @@ function App() {
   return (
     <div className="pb-6">
       <Header />
-      
+
       <Outlet />
 
       <Footer />
     </div>
   );
-};
+}
 
 export default App;
-
