@@ -11,12 +11,8 @@ import axios from "axios";
 const API_KEY = import.meta.env.VITE_API_KEY;
 const BASE_URL = "https://www.omdbapi.com/";
 
-const api = axios.create({
-  baseURL: BASE_URL,
-  params: {
-    apikey: API_KEY,
-  },
-});
+const movieUrl = `${BASE_URL}?apikey=${API_KEY}`;
+
 
 const handleError = (error: unknown) => {
   if (axios.isAxiosError(error)) {
@@ -30,9 +26,14 @@ const handleError = (error: unknown) => {
 // **Fetch movies by search query**
 export const searchMovies = async (query: string) => {
   try {
-    const response = await api.get("/", {
-      params: { s: query },
-    });
+    const response = await axios.get(
+      `${movieUrl}&s=${encodeURIComponent(query)}`
+    );
+
+    if (!response.data.Search) {
+      throw new Error("No movies found");
+    }
+
     return response.data.Search; // Returns an array of movies
   } catch (error) {
     handleError(error);
@@ -42,16 +43,17 @@ export const searchMovies = async (query: string) => {
 // **Fetch movie details by IMDb ID**
 export const getMovieDetails = async (imdbID: string) => {
   try {
-    const response = await api.get("/", {
-      params: { i: imdbID },
-    });
-    return response.data;
+    const response = await axios.get(
+      `${movieUrl}&i=${encodeURIComponent(imdbID)}`
+    );
+
+    if (!response.data) {
+      throw new Error("Something is wrong somewhere, no movie detail found");
+    }
+
+    return response.data; // Returns an array of movies
   } catch (error) {
     handleError(error);
   }
 };
 
-
-
-
-export default api;

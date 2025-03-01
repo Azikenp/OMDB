@@ -31,6 +31,7 @@ const SearchComponent = () => {
       }
     } catch {
       setError("Failed to fetch movies. Please try again.");
+      setMovies([])
     } finally {
       setLoading(false); // 👈 Stop loading
     }
